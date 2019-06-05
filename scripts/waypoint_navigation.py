@@ -7,7 +7,7 @@ from crazyflieParser import CrazyflieParser
 if __name__ == '__main__':
 
     index = 1   # for cf1
-    initialPosition = [0,0,0] # x,y,z coordinate for this crazyflie
+    initialPosition = [0,-1.5,0] # x,y,z coordinate for this crazyflie
     cfs = CrazyflieParser(index, initialPosition)
     cf = cfs.crazyflies[0]
     time = cfs.timeHelper
@@ -21,15 +21,15 @@ if __name__ == '__main__':
     time.sleep(3.0)
     # FILL IN YOUR CODE HERE
     # Please try both goTo and cmdPosition
-    cf.goTo([-2, 0, 0.5], 0, 12.0)
+    cf.goTo([-2, 0, 0.5], -1.5, 12.0)
     time.sleep(12.0)
-    cf.goTo([-2, 0, 1.5], 0, 6.0)
+    cf.goTo([-2, 0, 1.5], -1.5, 6.0)
     time.sleep(6.0)
-    cf.goTo([2, 0, 1.5], 0, 24.0)
+    cf.goTo([2, 0, 1.5], -1.5, 24.0)
     time.sleep(24.0)
-    cf.goTo([2, 0, 0.5], 0, 6.0)
+    cf.goTo([2, 0, 0.5], -1.5, 6.0)
     time.sleep(6.0)
-    cf.goTo([0, 0, 0.5], 0, 12.0)
+    cf.goTo([0, 0, 0.5], -1.5, 12.0)
     time.sleep(12.0)
 
     cf.land(targetHeight = 0.0, duration = 5.0)
