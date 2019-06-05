@@ -7,7 +7,7 @@ from crazyflieParser import CrazyflieParser
 if __name__ == '__main__':
 
     index = 1   # for cf1
-    initialPosition = [0,0,0] # x,y,z coordinate for this crazyflie
+    initialPosition = [0,-1.5,0] # x,y,z coordinate for this crazyflie
     cfs = CrazyflieParser(index, initialPosition)
     cf = cfs.crazyflies[0]
     time = cfs.timeHelper
@@ -22,16 +22,16 @@ if __name__ == '__main__':
     # FILL IN YOUR CODE HERE
     # Please try both goTo and cmdPosition
     for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([math.sqrt(0.5**2 - (i-0.5)**2), 0, i+0.5], 0)
+        cf.cmdPosition([math.sqrt(0.5**2 - (i-0.5)**2), -1.5, i+0.5], 0)
         time.sleep(0.1)
     for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([math.sqrt((0.5**2 - i**2)), 0, i+1], 0)
+        cf.cmdPosition([math.sqrt((0.5**2 - i**2)), -1.5, i+1], 0)
         time.sleep(0.1)
     for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([-math.sqrt((0.5**2 - (i-0.5)**2)), 0, -i+1.5], 0)
+        cf.cmdPosition([-math.sqrt((0.5**2 - (i-0.5)**2)), -1.5, -i+1.5], 0)
         time.sleep(0.1)
     for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([-math.sqrt((0.5**2 - i**2)), 0, -i+1], 0)
+        cf.cmdPosition([-math.sqrt((0.5**2 - i**2)), -1.5, -i+1], 0)
         time.sleep(0.1)
     cf.land(targetHeight = 0.0, duration = 5.0)
     time.sleep(5.0)
