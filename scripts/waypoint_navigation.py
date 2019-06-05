@@ -31,6 +31,21 @@ if __name__ == '__main__':
     time.sleep(6.0)
     cf.goTo([0, 0, 0.5], -1.5, 12.0)
     time.sleep(12.0)
-
+    ‘’‘
+    for i in np.arange(0, 0.5, 0.01):
+        cf.cmdPosition([math.sqrt(0.5**2 - (i-0.5)**2), -1.5, i+0.5], 0)
+        time.sleep(0.1)
+    for i in np.arange(0, 0.5, 0.01):
+        cf.cmdPosition([math.sqrt((0.5**2 - i**2)), -1.5, i+1], 0)
+        time.sleep(0.1)
+    for i in np.arange(0, 0.5, 0.01):
+        cf.cmdPosition([-math.sqrt((0.5**2 - (i-0.5)**2)), -1.5, -i+1.5], 0)
+        time.sleep(0.1)
+    for i in np.arange(0, 0.5, 0.01):
+        cf.cmdPosition([-math.sqrt((0.5**2 - i**2)), -1.5, -i+1], 0)
+        time.sleep(0.1)
+    ’‘’
+    
+    
     cf.land(targetHeight = 0.0, duration = 5.0)
     time.sleep(5.0)
