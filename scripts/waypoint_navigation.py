@@ -21,31 +21,102 @@ if __name__ == '__main__':
     time.sleep(3.0)
     # FILL IN YOUR CODE HERE
     # Please try both goTo and cmdPosition
-    cf.goTo([-2, 0, 0.5], -1.5, 12.0)
+    '''
+    cf.goTo([-2, -1.5, 0.5], 0, 12.0)
     time.sleep(12.0)
-    cf.goTo([-2, 0, 1.5], -1.5, 6.0)
+    cf.goTo([-2, -1.5, 1.5], 0, 6.0)
     time.sleep(6.0)
-    cf.goTo([2, 0, 1.5], -1.5, 24.0)
+    cf.goTo([2, -1.5, 1.5], 0, 24.0)
     time.sleep(24.0)
-    cf.goTo([2, 0, 0.5], -1.5, 6.0)
+    cf.goTo([2, -1.5, 0.5], 0, 6.0)
     time.sleep(6.0)
-    cf.goTo([0, 0, 0.5], -1.5, 12.0)
+    cf.goTo([0, -1.5, 0.5], 0, 12.0)
     time.sleep(12.0)
-    ‘’‘
-    for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([math.sqrt(0.5**2 - (i-0.5)**2), -1.5, i+0.5], 0)
+    '''
+    r = 0.5
+    '''
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 - math.cos(i))
+        y = -1.5 + math.sqrt(r**2 - (x + r)**2)
+        cf.cmdPosition([x, y, 0.5], 0)
         time.sleep(0.1)
-    for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([math.sqrt((0.5**2 - i**2)), -1.5, i+1], 0)
+        print([x, y, 0.5], 1)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 + math.sin(i))
+        y = -1.5 + math.sqrt(r**2 - (x + r)**2)
+        cf.cmdPosition([x, y, 0.5], 0)
         time.sleep(0.1)
-    for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([-math.sqrt((0.5**2 - (i-0.5)**2)), -1.5, -i+1.5], 0)
+        print([x, y, 0.5], 2)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 + math.cos(i))
+        y = -1.5 - math.sqrt(r**2 - (x + r)**2)
+        cf.cmdPosition([x, y, 0.5], 0)
         time.sleep(0.1)
-    for i in np.arange(0, 0.5, 0.01):
-        cf.cmdPosition([-math.sqrt((0.5**2 - i**2)), -1.5, -i+1], 0)
+        print([x, y, 0.5], 3)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 - math.sin(i))
+        y = -1.5 - math.sqrt(r**2 - (x + r)**2)
+        cf.cmdPosition([x, y, 0.5], 0)
         time.sleep(0.1)
-    ’‘’
-    
-    
+        print([x, y, 0.5], 4)
+    '''
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 - math.cos(i))
+        y = -1.5 + math.sqrt(r**2 - (x + r)**2)
+        z = 0.5 + 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 1)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 + math.sin(i))
+        y = -1.5 + math.sqrt(r**2 - (x + r)**2)
+        z = 0.625 + 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 2)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (3 - math.cos(i))
+        y = -1.5 - math.sqrt(r**2 - (x + 3*r)**2)
+        z = 0.75 + 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 3)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (3 + math.sin(i))
+        y = -1.5 - math.sqrt(r**2 - (x + 3*r)**2)
+        z = 0.875 + 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 4)
+        ##
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (3 + math.cos(i))
+        y = -1.5 + math.sqrt(r**2 - (x + 3*r)**2)
+        z = 1.0 - 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 1)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (3 - math.sin(i))
+        y = -1.5 + math.sqrt(r**2 - (x + 3*r)**2)
+        z = 0.875 - 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 2)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 + math.cos(i))
+        y = -1.5 - math.sqrt(r**2 - (x + r)**2)
+        z = 0.75 - 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 3)
+    for i in np.arange(0, np.pi/2, np.pi/50):
+        x = - r * (1 - math.sin(i))
+        y = -1.5 - math.sqrt(r**2 - (x + r)**2)
+        z = 0.625 - 2*i/np.pi/8
+        cf.cmdPosition([x, y, z], 0)
+        time.sleep(0.1)
+        print([x, y, z], 4)
+
     cf.land(targetHeight = 0.0, duration = 5.0)
     time.sleep(5.0)
